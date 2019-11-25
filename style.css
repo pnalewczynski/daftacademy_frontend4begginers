@@ -1,0 +1,435 @@
+/*
+Przeglądarki internetowe nadają znacznikom HTML wartości początkowe,
+które się różnią w zależności od producenta (np. Chrome, Firefox, Opera, Internet Explorer, Microsoft Edge).
+Dlatego popularną praktyką jest tworzenie tzw. resetów,
+czyli plików CSS zawierających reguły, które nadpisują te wartości,
+aby były one jednolite niezalenie od przeglądarki.
+Więcej na ten temat: https://cssreset.com/what-is-a-css-reset/
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('./images/background.svg');
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    padding: 6px 9px;
+    border: 1px solid rgba(204, 200, 255, .2);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #89072e;
+    background-color: #25072e;
+    transition: background-color .2s;
+    color: #ccc8ff;
+}
+
+.button:hover, .button:active {
+    transform: scale(.98);
+    background-color: rgba(236, 0, 140, .8);
+}
+
+.button:focus {
+    background-color: rgba(236, 0, 140, .6);
+    outline-color: rgba(236, 0, 140, 1);
+}
+
+.button:disabled, .button:hover:disabled {
+    color: rgba(204, 200, 255, .5);
+    background-color: rgba(37, 7, 46, 1);
+}
+
+/*
+ZAGADNIENIE PONADPROGRAMOWE
+Rekomendowany zestaw właściwości, które pozwalają na ukrycie tekstu w taki sposób,
+że będzie niewidoczny do standardowego użytkownika, a czytniki ekranowe wciąż będą go czytać.
+Więcej na ten temat: https://webaim.org/techniques/css/invisiblecontent/
+*/
+
+.screen-reader-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/*
+Sekcja pomocnicza, aby zwizualizować pozycje głównych bloków strony. Będzie usunięta w następnych krokach.
+*/
+.page-header {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    /* background-color: #fff; */
+}
+
+.page-brand {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right;
+    letter-spacing: 4.5px;
+}
+
+.page-navigation {
+    margin: 15px 0;
+}
+
+.page-navigation__item {
+    font: 13px Helvetica, sans-serif;
+    font-weight: bold;
+    line-height: 2;
+    text-transform : uppercase;
+}
+
+.page-navigation__link:link, .page-navigation__link:visited {
+    letter-spacing: 6.7px;
+    color: #b62979;
+    text-decoration: none;
+}
+
+.page-navigation__link:hover {
+    color: #dc328c;
+}
+
+.page-navigation__link:active {
+    letter-spacing: 6.5px;
+}
+
+.page-content {
+    margin-left: 220px;
+    padding: 0 10%;
+    text-align: right;
+    /* background-color: #b0ffb0; */
+}
+
+.page-footer {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    /* background-color: #7ba3ff; */
+}
+
+.content-section {
+    height: 100vh;
+    /* background-color: #20150B; */
+}
+
+.content-section__header {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right;
+    letter-spacing: 3.8px;
+    text-transform : uppercase;
+    line-height: 4;
+    color: #ef008e;
+}
+
+/* .content-section:nth-child(odd) {
+    background-color: #25072E;
+} */
+
+/*
+Ustawiając sekcje nagłówka i stopki w pozycji 'fixed' sprawiamy,
+że niezależnie od pozycji paska przewijania elementy te będą znajdowały się
+w tej samej pozycji względem okna przeglądarki.
+Natomiast pozycję tę ustawiamy za pomocą parametrów 'top', 'bottom', 'right', 'left'.
+*/
+
+.social-links__item:not(:last-child) {
+    margin: 0 0 15px 0;
+}
+
+.social-links__item a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    color: transparent;
+}
+
+.social-links__item:hover, .social-links__item:active {
+    filter: brightness(120%);
+}
+
+.social-links__item:nth-child(1) a {
+    background: url('./images/fb.svg');
+    background-size: contain;
+}
+
+.social-links__item:nth-child(2) a {
+    background: url('./images/insta.svg');
+    background-size: contain;
+}
+
+.social-links__item:nth-child(3) a {
+    background: url('./images/last.svg');
+    background-size: contain;
+}
+
+.social-links__item:nth-child(4) a {
+    background: url('./images/yout.svg');
+    background-size: contain;
+}
+
+/*
+Lewy margines ustawiony na kontenerze z główną zawartością strony sprawia,
+że nie będzie ona nachodzić na nagłówek i stopkę niezależnie od pozycji paska przewijania.
+Na projekcie graficznym sekcja menu ma szerokość około 170px i jest oddalona od krawędzi ekranu
+o 50px, więc można założyć, że 220px marginesu będzie wartością stosunkowo bezpieczną.
+Z kolei spady (padding) nadane na kontener wyznaczają minimalną odległość, na jaką będzie oddalona
+treść strony od otaczających ją granic kontenera (wartość "0 10%" jest
+skrótem od padding-top: 0, padding-bottom: 0, padding-left: 10%, padding-right: 10%).
+Właściwość "text-align: right" przykleja zawartość do prawej strony
+(oddziałuje na elementy, które są elementami inline'owymi, np. tekst, znaczniki <a>, <span> czy elementy z nadanym stylem "display: inline-block").
+*/
+
+.band-members {
+    display: flex;
+    justify-content: center;
+    padding-top: 220px;
+}
+
+.band-members__name {
+    font-weight: bold;
+    text-align: left;
+    font-family:'Open Sans', sans-serif;
+    letter-spacing: 3.8px;
+    text-transform : uppercase;
+    color: #d8d8fb;
+    opacity: .8;
+}
+
+.band-members__desc {
+    text-align: left;
+    color: #ccc8ff;
+    opacity: .1;
+}
+
+.band-members__item {
+    position: relative;
+    height: 200px;
+    width: 257px;
+}
+
+.band-members__tooltip {
+    position: relative;
+    top: -400;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+}
+
+.band-members__item:hover .band-members__tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.band-members__item:hover {
+    filter: brightness(180%);
+}
+
+.about {
+    width: 853px;
+    float: right;
+}
+
+.about-section__image {
+    position: relative;
+    max-width: 600px;
+    border-top: 4px solid #db328b;
+}
+
+.about-section__desc {
+    position: relative;
+    left: 5px;
+    bottom: 150px;
+    max-width: 320px;
+    border-bottom: 4px solid #db328b;
+    padding: 15px;
+    font-size: 13px;
+    float: left;
+    text-align: left;
+    background-color: #220a2c;
+    color: #ccc8ff;
+}
+
+.about-section__desc-header {
+    font-size: 15px;
+    font-weight: bold;
+    color: #d8d8fb;
+    letter-spacing: 3.8px;
+    text-transform : uppercase;
+}
+
+.concert {
+    display: grid;
+    grid-template-columns: 250px 250px;
+    gap: 37px;
+    max-width: 853px;
+    float: right;
+    text-align: right;
+}
+
+.concert__info {
+    position: relative;
+    padding: 10px 0;
+    text-align: left;
+}
+
+.concert__info .button {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    font-size: 10px;
+}
+
+.concert__image {
+    width: 100%;
+}
+
+.concert__date, .concerts__location {
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+.concert__date {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ccc8ff;
+    opacity: .8;
+    letter-spacing: 3.8px;
+}
+
+.concert__location {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ccc8ff;
+    opacity: .5;
+    letter-spacing: 3.5px;
+}
+
+.clear {
+    clear: both;
+}
+
+.video__videoyt {
+    max-width: 853px;
+    max-height: 480px;
+    border-top: 4px solid #db328b;
+    float: right;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 853px;
+    float: right;
+}
+
+.gallery__item {
+    width: 270px;
+    margin: 5px;
+}
+
+.gallery__image {
+    width: 100%;
+    border-top: 4px solid #db328b;
+    transition: transform .2s;
+}
+
+.gallery__image:hover {
+    transform: scale(1.2);
+}
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 80px;
+    row-gap: 20px;
+    max-width: 853px;
+    float: right;
+    justify-content: flex-end;
+}
+
+.contact__address {
+    justify-self: flex-start;
+    align-self: center;
+    font-size: 13px;
+    text-align: left;
+    font-style: normal;
+    letter-spacing: 1.5px;
+    color: #ccc8ff;
+    opacity: .8;
+}
+
+.contact__form {
+    justify-self: flex-start;
+}
+
+.form {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.form__field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: #ccc8ff;
+    opacity: .8;
+}
+
+.form__field:last-child {
+    margin-top: 25px;
+}
+
+.form__label {
+    line-height: 2;
+}
+
+.form__input {
+    width: 70%;
+    padding: 6px 6px;
+    border: 1px solid #a6a1e3;
+    border-radius: 4px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    background-color: #ccc8ff;
+    opacity: .5;
+}
+
+/*
+Projekt graficzny zakłada, że każda sekcja strony będzie wypełniać całą wysokość okna przeglądarki
+lub więcej, jeśli zawartość danej sekcji jest wyższa. Dlatego świetnym rozwiązaniem
+będzie użycie jednostki "vh", która oznacza 1% wysokości okna przeglądarki z właściwością "min-height",
+która wymusza wysokość elementu na zadaną wartość lub wyższą.
+*/
