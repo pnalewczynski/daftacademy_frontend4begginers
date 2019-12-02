@@ -40,23 +40,6 @@
         </header>
         <main class="page-content">
             <section id="home" class="content-section">
-                <!--
-                    ZAGADNIENIE PONADPROGRAMOWE
-                    Nagłówek 'Home' nie jest pokazany na projekcie graficznym, ale dobrą praktyką
-                    jest umieszczanie nagłówków przy każdej głównej sekcji strony.
-                    Pozwoli to na użytkownikom czytników ekranowych (np. osobom niewidomym lub niedowidzącym)
-                    na zorientowanie się w strukturze naszej strony.
-                    A żeby zachować wygląd strony adekwatny do projektu graficznego,
-                    można utworzyć pomocniczą klasę CSS (np. 'screen-reader-only'),
-                    która będzie ukrywała dany element dla standardowego użytkownika.
-                    Należy jednak pamiętać, że ukrywanie elementów strony może obniżyć ranking
-                    pozycjonowania twojej strony (SEO) i powinniśmy starać się umieszczać elementy nagłówkowe
-                    w projekcie graficznym.
-                    Dlatego też trzeba świadomie stosować to rozwiązanie i jeśli bardziej zależy nam na
-                    pozycjonowaniu niż dostępności, wtedy możemy użyć więcej niż jeden znacznik <h1> i
-                    używać go jako głównego nagłówka danych sekcji (w przypadku naszego projektu <h2>
-                    zamienilibyśmy na <h1>, a <h3> na <h2>).
-                -->
                 <h2 class="content-section__header screen-reader-only">Home</h2>
                 <ul class="band-members">
                     <li class="band-members__item">
@@ -147,45 +130,90 @@
             <section id="video" class="content-section">
                 <h2 class="content-section__header">Video</h2>
                     <div class="video__videoyt">
-                        <iframe width="853" height="480" src="https://www.youtube.com/embed/AstRXh-vKNI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe class="video__iframe" mwidth="853" height="480" src="https://www.youtube.com/embed/AstRXh-vKNI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
             </section>
             <section id="photos" class="content-section">
                 <h2 class="content-section__header">Photos</h2>
                 <ul class="gallery">
                     <li class="gallery__item">
-                        <img class="gallery__image" src="./images/band05_JakubBodys.jpg" alt="Image of band vocalist during a concert" />
+                        <img class="gallery__image" 
+                            srcset="./images/band05_JakubBodys.jpg,
+                                    ./images/band05_JakubBodys@2.jpg 2x,
+                                    ./images/band05_JakubBodys@3.jpg 3x"
+                            src="./images/band05_JakubBodys@3.jpg"
+                            alt="Image of band vocalist during a concert" />
                     </li>
                     <li class="gallery__item">
-                        <img class="gallery__image" src="./images/band06_JakubBodys.jpg" alt="Image of band drummer during a concert" />
+                        <img class="gallery__image"
+                            srcset="./images/band06_JakubBodys.jpg,
+                                    ./images/band06_JakubBodys@2.jpg 2x,
+                                    ./images/band06_JakubBodys@3.jpg 3x"
+                            src="./images/band06_JakubBodys@3.jpg"
+                            alt="Image of band drummer during a concert" />
                     </li>
                     <li class="gallery__item">
-                        <img class="gallery__image" src="./images/band07.jpg" alt="Image of band members at the construction site" />
+                        <img class="gallery__image"
+                            srcset="./images/band07.jpg,
+                                    ./images/band07@2.jpg 2x,
+                                    ./images/band07@3.jpg 3x"
+                            src="./images/band07@3.jpg"
+                            alt="Image of band members at the construction site" />
                     </li>
                     <li class="gallery__item">
-                        <img class="gallery__image" src="./images/band08.jpg" alt="Image of band members posing against the wall with graffiti" />
+                        <img class="gallery__image"
+                            srcset="./images/band08.jpg,
+                                    ./images/band08@2.jpg 2x,
+                                    ./images/band08@3.jpg 3x"
+                            src="./images/band08@3.jpg"
+                            alt="Image of band members posing against the wall with graffiti" />
                     </li>
                     <li class="gallery__item">
-                        <img class="gallery__image" src="./images/band09.jpg" alt="Image of band members standing in the shadows" />
+                        <img class="gallery__image"
+                            srcset="./images/band09.jpg,
+                                    ./images/band09@2.jpg 2x,
+                                    ./images/band09@3.jpg 3x"
+                            src="./images/band09@3.jpg"
+                            alt="Image of band members standing in the shadows" />
                     </li>
                     <li class="gallery__item">
-                        <img class="gallery__image" src="./images/band10.jpg" alt="Image of band members standing at the construction site" />
+                        <img class="gallery__image"
+                            srcset="./images/band10.jpg,
+                                    ./images/band10@2.jpg 2x,
+                                    ./images/band10@3.jpg 3x"
+                            src="./images/band10@3.jpg"
+                            alt="Image of band members standing at the construction site" />
                     </li>
                     <li class="gallery__item">
-                        <img class="gallery__image" src="./images/band11.jpg" alt="Image of band vocalist during a concert" />
+                        <img class="gallery__image"
+                            srcset="./images/band11.jpg,
+                                    ./images/band11@2.jpg 2x,
+                                    ./images/band11@3.jpg 3x"
+                            src="./images/band11@3.jpg"
+                            alt="Image of band vocalist during a concert" />
                     </li>
                     <li class="gallery__item">
-                        <img class="gallery__image" src="./images/band04_JakubBodys.jpg" alt="Image of band keyboard player during a concert" />
+                        <img class="gallery__image"
+                            srcset="./images/band04_JakubBodys.jpg,
+                                    ./images/band04_JakubBodys@2.jpg 2x,
+                                    ./images/band04_JakubBodys@3.jpg 3x"
+                            src="./images/band04_JakubBodys@3.jpg"
+                            alt="Image of band keyboard player during a concert" />
                     </li>
                     <li class="gallery__item">
-                        <img class="gallery__image" src="./images/band03_WiechnikMarcin.jpg" alt="Image of band vocalist and keyboard player during a concert" />
+                        <img class="gallery__image" 
+                            srcset="./images/band03_WiechnikMarcin.jpg,
+                                    ./images/band03_WiechnikMarcin@2.jpg 2x,
+                                    ./images/band03_WiechnikMarcin@3.jpg 3x"
+                            src="./images/band03_WiechnikMarcin@3.jpg"
+                            alt="Image of band vocalist and keyboard player during a concert" />
                     </li>
                 </ul>
             </section>
             <section id="contact" class="content-section contact-section">
                 <h2 class="content-section__header">Contact</h2>
                 <div class="contact">
-                    <img class="gallery__image" src="./images/band12.jpg" alt="Image of band members posing next to a train" />
+                    <img class="contact__image" src="./images/band12.jpg" alt="Image of band members posing next to a train" />
                     <address class="contact__address">
                         Tel: 123 456 789<br/>
                         E-mail: 6bmmusic@gmail.com
@@ -207,10 +235,6 @@
             </section>
         </main>
         <footer class="page-footer">
-            <!--
-                ZAGADNIENIE PONADPROGRAMOWE
-                Podobnie jak wyżej, nagłówek jest utworzony dla użytku czytników ekranowych.
-            -->
             <h2 class="screen-reader-only">Social media links</h2>
             <ul class="social-links">
                 <li class="social-links__item">
