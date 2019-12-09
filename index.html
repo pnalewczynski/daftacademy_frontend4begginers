@@ -16,7 +16,10 @@
                 <img src="./images/logo.png" alt="6BM logo" />
             </h1>
             <nav class="page-navigation">
-                <ul class="page-navigation__items">
+                    <div class="page-navigation-toggle">
+                            <button id="page-navigation-beam">Menu</button>
+                        </div>
+                <ul class="page-navigation__items page-navigation-items">
                     <li class="page-navigation__item">
                         <a class="page-navigation__link" href="#home">Home</a>
                     </li>
@@ -97,7 +100,10 @@
                         <header class="concert__info">
                             <p class="concert__date">20.12.2018</p>
                             <p class="concert__location">Lublin, klub XXX</p>
-                            <button class="button">Buy a ticket</button>
+                            <div class="hidden-div" id="hidden-div">
+                                Sorry, all tickets have been sold out!
+                            </div>
+                            <button class="button" id="show_button">Buy a ticket</button>
                         </header>
                     </article>
                     <article class="concert-section__item">
@@ -129,15 +135,17 @@
             <div class="clear"></div>
             <section id="video" class="content-section">
                 <h2 class="content-section__header">Video</h2>
+                    <div class="video__wrap">
                     <div class="video__videoyt">
                         <iframe class="video__iframe" mwidth="853" height="480" src="https://www.youtube.com/embed/AstRXh-vKNI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
                     </div>
             </section>
             <section id="photos" class="content-section">
                 <h2 class="content-section__header">Photos</h2>
                 <ul class="gallery">
                     <li class="gallery__item">
-                        <img class="gallery__image" 
+                        <img class="gallery__image"
                             srcset="./images/band05_JakubBodys.jpg,
                                     ./images/band05_JakubBodys@2.jpg 2x,
                                     ./images/band05_JakubBodys@3.jpg 3x"
@@ -201,7 +209,7 @@
                             alt="Image of band keyboard player during a concert" />
                     </li>
                     <li class="gallery__item">
-                        <img class="gallery__image" 
+                        <img class="gallery__image"
                             srcset="./images/band03_WiechnikMarcin.jpg,
                                     ./images/band03_WiechnikMarcin@2.jpg 2x,
                                     ./images/band03_WiechnikMarcin@3.jpg 3x"
@@ -218,7 +226,7 @@
                         Tel: 123 456 789<br/>
                         E-mail: 6bmmusic@gmail.com
                     </address>
-                    <form class="contact__form form">
+                    <form class="contact__form form" id="form" onsubmit="writeInConsole(event)">
                         <div class="form__field">
                             <label class="form__label" for="email">E-mail</label>
                             <input class="form__input" type="email" name="email" id="email" required />
@@ -251,5 +259,29 @@
                 </li>
             </ul>
         </footer>
+        <script>
+            function toggleMenu() {
+                let getMenu = document.querySelector(".page-navigation-items");
+                getMenu.classList.toggle("page-navigation-hamburger");
+            }
+
+                let getHamburger = document.querySelector("#page-navigation-beam");
+                getHamburger.addEventListener("click", toggleMenu);
+
+                document.getElementById("show_button").addEventListener("click", concertone, false);
+
+            function concertone() {
+                document.getElementById("hidden-div").style.display = "block";
+                this.style.display = "none";
+            }
+
+            function writeInConsole(event) {
+                event.preventDefault();
+                var email = document.getElementById("email");
+                var topic = document.getElementById("topic");
+                console.log(email.value + "\n" + topic.value);
+            }
+            
+        </script>
     </body>
 </html>

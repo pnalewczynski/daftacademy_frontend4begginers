@@ -82,7 +82,7 @@ ul {
 }
 
 .page-content {
-text-align: right;
+    text-align: right;
 }
 
 .content-section__header {
@@ -93,6 +93,12 @@ text-align: right;
     text-transform : uppercase;
     line-height: 4;
     color: #ef008e;
+}
+
+.hidden-div {
+    display: none;
+    font-size: 11px;
+    color: #fff;
 }
 
 .form__field {
@@ -124,7 +130,7 @@ text-align: right;
     opacity: .5;
 }
 
-@media(min-width: 1050px){
+@media(min-width: 1440px){
 body {
     background: url('./images/background.svg');
     background-attachment: fixed;
@@ -150,6 +156,14 @@ body {
     margin: 15px 0;
 }
 
+.page-navigation-items{
+    display: initial;
+}
+
+#page-navigation-beam{
+    display: none;
+}
+
 .page-content {
     margin-left: 220px;
     padding: 0 10%;
@@ -164,7 +178,7 @@ body {
 }
 
 .content-section {
-    height: 100vh;
+    height: 120vh;
     /* background-color: #20150B; */
 }
 
@@ -318,6 +332,7 @@ body {
 
 .concert__image {
     width: 100%;
+    border-bottom: 4px solid #db328b;
 }
 
 .concert__date, .concerts__location {
@@ -422,25 +437,25 @@ body {
 }
 }
 
-@media(max-width: 1049px) {
+@media(max-width: 1439px) {
     body {
         background-color: #2d1337;
     }
-    
+
     .button {
         padding: 12px 12px;
     }
-    
+
     .page-header. .page-content, .page-footer {
         width: 100%;
     }
-    
+
     .page-brand {
         width: 100%;
         padding: 40px 20px 20px 20px;
         text-align: center;
     }
-    
+
     .page-navigation {
         padding: 15px;
         text-align: left;
@@ -449,14 +464,14 @@ body {
     .page-content {
         padding: 0;
     }
-    
+
     .page-footer {
     }
-    
+
     .content-section {
         height: 100%;
     }
-    
+
     .social-links {
         width: 100%;
         display: block;
@@ -465,53 +480,53 @@ body {
         padding: 0;
         text-align: center;
     }
-    
+
     .social-links__item:not(:last-child) {
         margin: 0 0 15px 0;
     }
-    
+
     .social-links__item {
         display: inline-block;
     }
-    
+
     .social-links__item a {
         color: transparent;
     }
-    
+
     .social-links__item:hover, .social-links__item:active {
         filter: brightness(120%);
     }
-    
+
     .social-links__item:nth-child(1) a {
         background: url('./images/fb.svg') no-repeat;
         background-size: contain;
         background-position-x: center;
     }
-    
+
     .social-links__item:nth-child(2) a {
         background: url('./images/insta.svg') no-repeat;
         background-size: contain;
         background-position-x: center;
     }
-    
+
     .social-links__item:nth-child(3) a {
         background: url('./images/last.svg') no-repeat;
         background-size: contain;
         background-position-x: center;
     }
-    
+
     .social-links__item:nth-child(4) a {
         background: url('./images/yout.svg') no-repeat;
         background-size: contain;
         background-position-x: center;
     }
-    
+
     .band-members {
         display: flex;
         flex-direction: column;
         margin-top: 15px;
     }
-    
+
     .band-members__name {
         font-weight: bold;
         text-align: left;
@@ -521,18 +536,18 @@ body {
         color: #d8d8fb;
         opacity: .8;
     }
-    
+
     .band-members__desc {
         text-align: left;
         color: #ccc8ff;
         opacity: .1;
     }
-    
+
     .band-members__item {
         text-align: center;
         padding: 5px;
     }
-    
+
     .band-members__tooltip {
         padding-left: 20px;
         width: 320px;
@@ -542,26 +557,26 @@ body {
         opacity: 0;
         transition: opacity .2s, visibility .2s;
     }
-    
+
     .band-members__item:hover .band-members__tooltip {
         visibility: visible;
         opacity: 1;
     }
-    
+
     .band-members__item:hover {
         filter: brightness(180%);
     }
-    
+
     .about {
         width: 100%;
-        padding: 5px;
+        padding: 15px;
     }
-    
+
     .about-section__image {
         width: 100%;
         border-top: 4px solid #db328b;
     }
-    
+
     .about-section__desc {
         width: 100%;
         border-bottom: 4px solid #db328b;
@@ -572,7 +587,7 @@ body {
         background-color: #220a2c;
         color: #ccc8ff;
     }
-    
+
     .about-section__desc-header {
         font-size: 15px;
         font-weight: bold;
@@ -580,23 +595,23 @@ body {
         letter-spacing: 3.8px;
         text-transform : uppercase;
     }
-    
+
     .concert {
         display: grid;
         grid-template-columns: 100%;
         gap: 37px;
         width: 100%;
-        padding: 5px;
+        padding: 15px;
         float: right;
         text-align: right;
     }
-    
+
     .concert__info {
         position: relative;
         padding: 10px 0;
         text-align: left;
     }
-    
+
     .concert__info .button {
         position: absolute;
         right: 0;
@@ -606,18 +621,18 @@ body {
         padding: 10px 12px;
         margin-right: 10px;
     }
-    
+
     .concert__image {
         width: 100%;
     }
-    
+
     .concert__date, .concerts__location {
         padding: 0;
         margin: 0;
         font-size: 10px;
         line-height: 1.2;
     }
-    
+
     .concert__date {
         font-size: 13px;
         font-weight: 700;
@@ -626,7 +641,7 @@ body {
         letter-spacing: 3.8px;
         padding-left: 10px;
     }
-    
+
     .concert__location {
         font-size: 12px;
         font-weight: 600;
@@ -635,7 +650,11 @@ body {
         letter-spacing: 3.5px;
         padding-left: 10px;
     }
-    
+
+    .video__wrap {
+        margin: 15px;
+    }
+
     .video__videoyt {
         width: 100%;
         float: right;
@@ -644,7 +663,7 @@ body {
         padding-top: 25px;
         height: 0;
     }
-    
+
     .video__iframe {
         border-top: 4px solid #db328b;
         position: absolute;
@@ -653,29 +672,29 @@ body {
         width: 100%;
         height: 100%;
     }
-    
+
     .gallery {
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
     }
-    
+
     .gallery__item {
         width: 100%;
         margin: 5px;
         text-align: center;
     }
-    
+
     .gallery__image {
         width: 80%;
         border-top: 4px solid #db328b;
         transition: transform .2s;
     }
-    
+
     .gallery__image:hover {
         transform: scale(1.2);
     }
-    
+
     @supports (display: grid) {
         .gallery {
             display: grid;
@@ -684,21 +703,21 @@ body {
             justify-items: center;
         }
     }
-    
+
     .contact {
         display: grid;
         grid-template-columns: 1fr;
         column-gap: 80px;
         row-gap: 20px;
         justify-content: flex-end;
-        padding: 5px;
+        padding: 15px;
         width: 100%;
     }
-    
+
     .contact__image {
         width: 100%;
     }
-    
+
     .contact__address {
         align-self: center;
         font-size: 13px;
@@ -710,13 +729,62 @@ body {
         opacity: .8;
         padding: 15px 30px;
     }
-    
+
     .contact__form {
         justify-items: end;
     }
-    
+
     .form {
         width: 100%;
         padding: 20px;
+    }
+    .page-header {
+        position: fixed;
+        width: 100%;
+        background: #2d1337;
+        z-index: 1000;
+        margin: 0;
+        padding: 0;
+        opacity: 0.9;
+        top: 0;
+    }
+
+    .page-brand {
+        position: relative;
+    }
+
+    .page-navigation {
+        position: absolute;
+        top: 28px;
+        left: 38px;
+    }
+
+    .page-navigation-items{
+        display: none;
+    }
+
+    .page-navigation-hamburger{
+        display: block;
+        background: #2d1337;
+        padding: 10px;
+        margin-top: 30px;
+    }
+
+    #page-navigation-beam {
+        width: 32px;
+        height: 32px;
+        background-image: url('file:///Users/piotr/Desktop/hamburger.svg');
+        filter: brightness(0) invert(1);
+        background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        background-color: transparent;
+        border: none;
+        color: transparent;
+        font-size: 7px;
+    }
+    .band-members {
+        margin: 140px 0 0 0;
     }
 }
