@@ -773,7 +773,7 @@ body {
     #page-navigation-beam {
         width: 32px;
         height: 32px;
-        background-image: url('file:///Users/piotr/Desktop/hamburger.svg');
+        background-image: url('./hamburger.svg');
         filter: brightness(0) invert(1);
         background-size: cover;
         background-size: contain;
