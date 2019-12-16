@@ -240,7 +240,7 @@ body {
 .band-members__desc {
     text-align: left;
     color: #ccc8ff;
-    opacity: .1;
+    opacity: .5;
 }
 
 .band-members__item {
@@ -579,10 +579,14 @@ body {
         opacity: .8;
     }
 
+    .band-members__image:hover {
+        filter: brightness(180%);
+    }
+
     .band-members__desc {
         text-align: left;
         color: #ccc8ff;
-        opacity: .1;
+        opacity: .5;
     }
 
     .band-members__item {
@@ -595,8 +599,6 @@ body {
         width: 320px;
         margin: 0 auto;
         color: #fff;
-
-
     }
 
     /* .band-members__item:hover .band-members__tooltip {
