@@ -27,11 +27,11 @@ function writeInConsole(event) {
 const gallery = document.querySelectorAll(".gallery__item")
     gallery.forEach(function(image) {
     image.addEventListener("mouseleave", function() {
-        image.style.animation = "return 1s";
+        image.style.animation = "return 2s";
     })
 
     image.addEventListener("mouseenter", function() {
-        image.style.animation = "hover 1s";
+        image.style.animation = "hover 2s";
         image.style.animationFillMode = "both";
     })
 })
