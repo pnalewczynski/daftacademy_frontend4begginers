@@ -101,6 +101,48 @@ ul {
     color: #fff;
 }
 
+.gallery__item {
+    transition-duration: 2s;
+}
+
+.gallery__item:hover {
+    animation-name: hover;
+}
+
+@keyframes hover {
+    0% {
+        transform: scale(1)
+    }
+
+    50% {
+        transform: scale(0.8)
+    }
+
+    100% {
+        transform: scale(1.2)
+    }
+}
+
+@keyframes return {
+    0% {
+        transform: scale(1.2)
+    }
+
+    25% {
+        filter: blur(10px);
+        filter: invert(75%);
+    }
+
+    75% {
+        filter: blur(5px);
+        filter: invert(25%);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 .form__field {
     display: flex;
     flex-direction: column;
@@ -130,7 +172,7 @@ ul {
     opacity: .5;
 }
 
-@media(min-width: 1440px){
+@media(min-width: 1400px){
 body {
     background: url('./images/background.svg');
     background-attachment: fixed;
@@ -178,7 +220,7 @@ body {
 }
 
 .content-section {
-    height: 120vh;
+    height: 100vh;
     /* background-color: #20150B; */
 }
 
@@ -306,7 +348,7 @@ body {
 .concert {
     display: grid;
     grid-template-columns: 250px 250px;
-    gap: 37px;
+    gap: 10px;
     max-width: 853px;
     float: right;
     text-align: right;
@@ -390,12 +432,12 @@ body {
 .gallery__image {
     width: 100%;
     border-top: 4px solid #db328b;
-    transition: transform .2s;
+    /* transition: transform .2s; */
 }
 
-.gallery__image:hover {
+/* .gallery__image:hover {
     transform: scale(1.2);
-}
+} */
 
 @supports (display: grid) {
     .gallery {
@@ -404,7 +446,7 @@ body {
         justify-items: end;
     }
     .gallery__item {
-        width: 80%;
+        width: 70%;
     }
 }
 
@@ -437,7 +479,7 @@ body {
 }
 }
 
-@media(max-width: 1439px) {
+@media(max-width: 1399px) {
     body {
         background-color: #2d1337;
     }
@@ -745,7 +787,7 @@ body {
         z-index: 1000;
         margin: 0;
         padding: 0;
-        opacity: 0.9;
+        opacity: 0.8;
         top: 0;
     }
 
@@ -773,18 +815,44 @@ body {
     #page-navigation-beam {
         width: 32px;
         height: 32px;
-        background-image: url('./images/hamburger.svg');
+        /* background-image: url('./images/hamburger.svg');
         filter: brightness(0) invert(1);
         background-size: cover;
         background-size: contain;
         background-repeat: no-repeat;
         background-size: 32px 32px;
-        background-color: transparent;
+        background-color: transparent; */
         border: none;
         color: transparent;
         font-size: 7px;
     }
+
     .band-members {
         margin: 140px 0 0 0;
     }
+
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #b62979;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+
+    .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-8px, 8px);
+        transform: rotate(-45deg) translate(-8px, 8px);
+    }
+
+    .change .bar2 {
+        opacity: 0;
+    }
+
+    .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+    }
+}
+.clear {
+    clear: both;
 }

@@ -2,23 +2,29 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>6BM Band Official Website</title>
         <meta name="description" content="6BM is a young band which has it's origins in the city of Lublin, playing music described as electrorock.">
         <link rel="stylesheet" type="text/css" href="./style.css" />
-        <link rel="icon" type="image/png" href="./images/logo.png">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext">
+        <link rel="icon" type="image/png" href="./images/logo.png">
+        <script src="script.js" defer></script>
     </head>
     <body>
+
         <header class="page-header">
             <h1 class="page-brand">
                 <img src="./images/logo.png" alt="6BM logo" />
             </h1>
+
             <nav class="page-navigation">
                     <div class="page-navigation-toggle">
-                            <button id="page-navigation-beam">Menu</button>
+                        <div id="page-navigation-beam" class="container" onclick="changeMenuIcon(this)">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
                         </div>
+                    </div>
                 <ul class="page-navigation__items page-navigation-items">
                     <li class="page-navigation__item">
                         <a class="page-navigation__link" href="#home">Home</a>
@@ -40,7 +46,9 @@
                     </li>
                 </ul>
             </nav>
+
         </header>
+
         <main class="page-content">
             <section id="home" class="content-section">
                 <h2 class="content-section__header screen-reader-only">Home</h2>
@@ -74,7 +82,6 @@
                         </div>
                     </li>
                 </ul>
-
             </section>
             <section id="about" class="content-section about-section">
                 <h2 class="content-section__header">About</h2>
@@ -103,7 +110,7 @@
                             <div class="hidden-div" id="hidden-div">
                                 Sorry, all tickets have been sold out!
                             </div>
-                            <button class="button" id="show_button">Buy a ticket</button>
+                            <button class="button" id="show_info">Buy a ticket</button>
                         </header>
                     </article>
                     <article class="concert-section__item">
@@ -137,7 +144,7 @@
                 <h2 class="content-section__header">Video</h2>
                     <div class="video__wrap">
                     <div class="video__videoyt">
-                        <iframe class="video__iframe" mwidth="853" height="480" src="https://www.youtube.com/embed/AstRXh-vKNI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe class="video__iframe" width="853" height="480" src="https://www.youtube.com/embed/AstRXh-vKNI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                     </div>
             </section>
@@ -242,6 +249,7 @@
                 </div>
             </section>
         </main>
+
         <footer class="page-footer">
             <h2 class="screen-reader-only">Social media links</h2>
             <ul class="social-links">
@@ -259,29 +267,6 @@
                 </li>
             </ul>
         </footer>
-        <script>
-            function toggleMenu() {
-                let getMenu = document.querySelector(".page-navigation-items");
-                getMenu.classList.toggle("page-navigation-hamburger");
-            }
 
-                let getHamburger = document.querySelector("#page-navigation-beam");
-                getHamburger.addEventListener("click", toggleMenu);
-
-                document.getElementById("show_button").addEventListener("click", concertone, false);
-
-            function concertone() {
-                document.getElementById("hidden-div").style.display = "block";
-                this.style.display = "none";
-            }
-
-            function writeInConsole(event) {
-                event.preventDefault();
-                var email = document.getElementById("email");
-                var topic = document.getElementById("topic");
-                console.log(email.value + "\n" + topic.value);
-            }
-            
-        </script>
     </body>
 </html>
