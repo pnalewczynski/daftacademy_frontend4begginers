@@ -101,48 +101,6 @@ ul {
     color: #fff;
 }
 
-.gallery__item {
-    transition-duration: 2s;
-}
-
-.gallery__item:hover {
-    animation-name: hover;
-}
-
-@keyframes hover {
-    0% {
-        transform: scale(1)
-    }
-
-    50% {
-        transform: scale(0.8)
-    }
-
-    100% {
-        transform: scale(1.2)
-    }
-}
-
-@keyframes return {
-    0% {
-        transform: scale(1.2)
-    }
-
-    25% {
-        filter: blur(10px);
-        filter: invert(75%);
-    }
-
-    75% {
-        filter: blur(5px);
-        filter: invert(25%);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
 .form__field {
     display: flex;
     flex-direction: column;
@@ -439,6 +397,48 @@ body {
     transform: scale(1.2);
 } */
 
+.gallery__item {
+    transition-duration: 2s;
+}
+
+.gallery__item:hover {
+    animation-name: hover;
+}
+
+@keyframes hover {
+    0% {
+        transform: scale(1)
+    }
+
+    50% {
+        transform: scale(0.8)
+    }
+
+    100% {
+        transform: scale(1.2)
+    }
+}
+
+@keyframes return {
+    0% {
+        transform: scale(1.2)
+    }
+
+    25% {
+        filter: blur(10px);
+        filter: invert(75%);
+    }
+
+    75% {
+        filter: blur(5px);
+        filter: invert(25%);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 @supports (display: grid) {
     .gallery {
         display: grid;
@@ -595,19 +595,18 @@ body {
         width: 320px;
         margin: 0 auto;
         color: #fff;
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity .2s, visibility .2s;
+
+
     }
 
-    .band-members__item:hover .band-members__tooltip {
+    /* .band-members__item:hover .band-members__tooltip {
         visibility: visible;
         opacity: 1;
     }
 
     .band-members__item:hover {
         filter: brightness(180%);
-    }
+    } */
 
     .about {
         width: 100%;
